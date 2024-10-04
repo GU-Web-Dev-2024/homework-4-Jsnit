@@ -18,6 +18,10 @@
             background: linear-gradient(rgb(32, 31, 31), rgb(235, 119, 4));
 
         }
+        .butterfinger-div img {
+            width: 100px;  /* Ensure the image size is appropriate */
+            height: auto;  /* Maintain aspect ratio */
+        }
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -59,8 +63,7 @@
                 const img = document.createElement("img");
                 img.src = "candyCorn.jpg";
                 img.alt = "Candy Corn";
-                img.height = "50";
-                img.width = "50"
+
 
                 
                 const textDiv = document.createElement("div");
