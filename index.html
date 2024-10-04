@@ -1,160 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 10-2 participation </title>
-    <style>
-        body {
-        background: rgb(213, 141, 8);
-        }
-        .butterfinger-div, .candycorn-div, .hersheys-div, .laffytaffy-div, .nerds-div, .twix-div {
-            height: 25px;
-            width: 25px;
-            color: rgb(100, 11, 122);
-            padding: 20px;
-            border: 5px outset rgb(200, 0, 0);
-            margin: 10px;
-            background: linear-gradient(rgb(32, 31, 31), rgb(235, 119, 4));
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trick-or-Treat Elite Candies</title>
+  <style>
 
-        }
-        .butterfinger-div img {
-            width: 100px;  /* Ensure the image size is appropriate */
-            height: auto;  /* Maintain aspect ratio */
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    </style>
+  body {
+    font-family: 'Times New Roman', sans-serif;
+    background-color: #2c2a33;
+    color: #9a4800;
+    text-align: center;
+  }
+
+  header {
+    padding: 20px;
+    background-color: #3b3a42;
+    color: #ffa500;
+  }
+
+  footer {
+    padding: 15px;
+    background-color: #3b3a42;
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  .candy-collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .candy-box {
+    background-color: rgb(78, 74, 87);
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .candy-box img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .candy-box p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+
+  .candy-box:hover {
+    background-color: #ffa500;
+  }
+
+
+</style>
 </head>
 <body>
-    <h1> Trick or Treat! Get your costumes and candy baskets ready</h1>
-    <div class = "container" id = "div-container">
-        <!-- Where generated divs will go -->
-
-    </div>
-    <button id = "add-div-button"> Add a div </button>
-    <script>
-        let iter = 0;
-        //function to create a new div
-        function createDiv() {
-            const newDiv = document.createElement("div");
-            newDiv.textContent = "0" + iter;
-            
-            if (iter % 6 == 0) {
-                newDiv.className = "butterfinger-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "butterfinger.webp";
-                img.alt = "Butterfinger";
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            } else if (iter % 6 == 1) {
-                newDiv.className = "candycorn-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "candyCorn.jpg";
-                img.alt = "Candy Corn";
-
-
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            } else if (iter % 6 == 2) {
-                newDiv.className = "hersheys-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "hersheys.jpg";
-                img.alt = "Hersheys";
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            } else if (iter % 6 == 3) {
-                newDiv.className = "laffytaffy-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "laffyTaffy.webp";
-                img.alt = "Laffy Taffy";
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            } else if (iter % 6 == 4) {
-                newDiv.className = "nerds-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "nerds.png";
-                img.alt = "Nerds";
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            } else if (iter % 6 == 5) {
-                newDiv.className = "twix-div";
-                const container = document.createElement("div");
-                
-                const img = document.createElement("img");
-                img.src = "twix.webp";
-                img.alt = "Twix";
-                
-                const textDiv = document.createElement("div");
-                textDiv.textContent = "Text";
-
-                container.appendChild(img);
-                container.appendChild(textDiv);
-                newDiv.appendChild(container);
-            }
-            
-            // Add event listener
-            newDiv.addEventListener("mouseover", () => {
-                newDiv.style.background = "#232ba4";
-            });
-            newDiv.addEventListener("mouseout", () => {
-                newDiv.style.background = "";
-            });
-            newDiv.addEventListener("mousedown", () => {
-                announceID(newDiv);  // Make sure this function is defined
-            });
-            iter += 1;
-
-            document.getElementById("div-container").appendChild(newDiv);
-        }
-
-        function announceID(newDiv) {
-            alert("Div ID: " + newDiv.className);
-        }
-
-        document.getElementById("add-div-button").addEventListener("click", createDiv);
-        
-        for(let index = 0; index < 5; index++) {
-            createDiv();
-        }
-
-    </script>
+  <header>
+    <h1>Trick-or-Treat Elite Candies</h1>
+  </header>
+  
+  <main>
+    <section class="candy-collection">
+      <div class="candy-box">
+        <img src="butterfinger.webp" alt="butterfinger">
+        <p>Butterfingers</p>
+      </div>
+      <div class="candy-box">
+        <img src="candyCorn.jpg" alt="candycorn">
+        <p>Candy Corn</p>
+      </div>
+      <div class="candy-box">
+        <img src="hersheys.jpg" alt="hersheys">
+        <p>Hersheys</p>
+      </div>
+      <div class="candy-box">
+        <img src="laffyTaffy.webp" alt="laffytaffy">
+        <p>Laffy Taffy</p>
+      </div>
+      <div class="candy-box">
+        <img src="nerds.png" alt="nerds">
+        <p>Nerds</p>
+      </div>
+      <div class="candy-box">
+        <img src="twix.webp" alt="twix">
+        <p>Twix</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>The best of the best!</p>
+  </footer>
 </body>
 </html>
