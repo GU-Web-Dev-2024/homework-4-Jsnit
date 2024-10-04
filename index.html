@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 10-2 participation </title>
+    <style>
+        body {
+        background: rgb(213, 141, 8);
+        }
+        .butterfinger-div, .candycorn-div, .hersheys-div, .laffytaffy-div, .nerds-div, .twix-div {
+            height: 25px;
+            width: 25px;
+            color: rgb(100, 11, 122);
+            padding: 20px;
+            border: 5px outset rgb(200, 0, 0);
+            margin: 10px;
+            background: linear-gradient(rgb(32, 31, 31), rgb(235, 119, 4));
+
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1> Trick or Treat! Get your costumes and candy baskets ready</h1>
+    <div class = "container" id = "div-container">
+        <!-- Where generated divs will go -->
+
+    </div>
+    <button id = "add-div-button"> Add a div </button>
+    <script>
+        let iter = 0;
+        //function to create a new div
+        function createDiv() {
+            const newDiv = document.createElement("div");
+            newDiv.textContent = "0" + iter;
+            
+            if (iter % 6 == 0) {
+                newDiv.className = "butterfinger-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "butterfinger.webp";
+                img.alt = "Butterfinger";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+
+
+            } else if (iter % 6 == 1) {
+                newDiv.className = "candycorn-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "candyCorn.jpg";
+                img.alt = "Candy Corn";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+
+            } else if (iter % 6 == 2) {
+                newDiv.className = "hersheys-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "hersheysn.jpg";
+                img.alt = "Hersheys";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+            } else if (iter % 6 == 3) {
+                newDiv.className = "laffytaffy-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "laffyTaffy.webp";
+                img.alt = "Laffy Taffy";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+            } else if (iter % 6 == 4) {
+                newDiv.className = "nerds-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "nerds.png";
+                img.alt = "Nerds";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+            } else if (iter % 6 == 5) {
+                newDiv.className = "twix-div";
+                const container = document.createElement("div");
+                
+                const img = document.createElement("img");
+                img.src = "twix.webp";
+                img.alt = "Twix";
+                
+                const textDiv = document.createElement("div");
+                textDiv.textContent = "Text";
+
+                newDiv.appendChild(img, textDiv)
+            }
+            
+            // Add event listener
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.background = "#232ba4";
+            });
+            newDiv.addEventListener("mouseout", () => {
+                newDiv.style.background = "";
+            });
+            newDiv.addEventListener("mousedown", () => {
+                announceID(newDiv);  // Make sure this function is defined
+            });
+            iter += 1;
+
+            document.getElementById("div-container").appendChild(newDiv);
+        }
+
+        function announceID(newDiv) {
+            alert("Div ID: " + newDiv.className);
+        }
+
+        document.getElementById("add-div-button").addEventListener("click", createDiv);
+        
+        for(let index = 0; index < 5; index++) {
+            createDiv();
+        }
+
+    </script>
+</body>
+</html>
